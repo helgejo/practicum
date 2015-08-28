@@ -37,6 +37,22 @@ with explanations and output, generated automatically from the source files.
   - You can then use the Jaccard coefficient.
 
 
+## Task 4. Discretization
+
+  - Create an ordinal attribute "file size" with the following 5 possible values {tiny, small, medium, large, huge}
+  - Implement both the equal width and equal frequency methods
+  - Display the data on a plot 
+  
+
+## Task 5. Find k-nearest neighbors using Manhattan and Eucledian distances
+
+  - Generate n=100 random points in a two dimensional space. Let both the x and y attributes be int values between 1 and 100.
+  - Display these points on a scatterplot.
+  - Select one of these points randomly (i.e., pick a random index).
+  - Find the k closest neighbors of the selected record (i.e., the k records that are most similar to it) using both Manhattan and Eucledian distances. The value of k is given (i.e., hard-coded).
+  - Display the selected record and its k closest neighbors in a distinctive manner on the plot (e.g., using different colors).
+  
+
 ## References
 
   - [Matplotlib plotting framework](http://matplotlib.org/api/pyplot_api.html)

@@ -13,7 +13,6 @@
 
 # This standard import changes the default behavior of division to always
 # return a floating point value.
-
 from __future__ import division
 
 # We will use the **csv** module for reading in data from a file.
