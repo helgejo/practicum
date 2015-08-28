@@ -4,9 +4,9 @@
 # Task
 # ----
 #  - Create an ordinal attribute `file size` with the following 5 possible values
-#    {tiny, small, medium, large, huge}
-#  - Implement both the equal width and equal frequency methods
-#  - Display the data on a plot
+#    {tiny, small, medium, large, huge}.
+#  - Implement both the equal width and equal frequency methods.
+#  - Display the data on a plot.
 
 # Solution
 # --------

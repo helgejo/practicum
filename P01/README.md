@@ -45,9 +45,9 @@ with explanations and output, generated automatically from the source files.
 
 ## Task 4. Discretization
 
-  - Create an ordinal attribute "file size" with the following 5 possible values {tiny, small, medium, large, huge}
-  - Implement both the equal width and equal frequency methods
-  - Display the data on a plot 
+  - Create an ordinal attribute "file size" with the following 5 possible values {tiny, small, medium, large, huge}.
+  - Implement both the equal width and equal frequency methods.
+  - Display the data on a plot. 
 
 [Solution on DataJoy](https://www.getdatajoy.com/examples/55e0498f896c84651dfcfe4e)
   
