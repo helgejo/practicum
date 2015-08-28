@@ -22,8 +22,6 @@ import matplotlib.pyplot as plt
 # We will use the **csv** module for reading in data from a file.
 import csv
 
-import math
-
 # Read data from file.
 # The first attribute will be shown on the x dimension, the second on the y dimension.
 # We know that the first attribute is the file size. The meaning of the second attribute is
@@ -34,7 +32,7 @@ with open("../data/task4_data.txt", 'rb') as csvfile:
     csvreader = csv.reader(csvfile, delimiter='\t')
     for row in csvreader:
         if len(row) == 2:  # if we have 2 fields in that line
-            x.append(math.log(float(row[0])))
+            x.append(row[0])
             y.append(row[1])
 
 # Plot original data.
