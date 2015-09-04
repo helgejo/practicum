@@ -43,8 +43,8 @@ Learning objectives:
 
 ## Task 5. Computing statistics on the Adult dataset
 
-  - Compute frequency and mode for the categorical attributes .
-  - Compute mean, median, and variance for the continuous attributes, for the two classes (>50K, <=50K).
+  - Compute frequency and mode for a selected categorical attribute.
+  - Compute mean, median, and variance for a selected continuous attribute, for each of the two classes (>50K, <=50K).
   
 
 ## Task 6. Visualizing Adult data
