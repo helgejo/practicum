@@ -20,6 +20,8 @@ Learning objectives:
     * What is the 70% percentile for `sepal length` and `sepal width` (for all classes together)?
     * Compute Absolute Average Deviation (AAD), Median Absolute Deviation (MAD), and Interquartile Range (IQR) for `petal length` (for all classes together).
   
+[Solution on DataJoy](https://www.getdatajoy.com/examples/55e9df6a896c84651dfcfeb6)  
+
   
 ## Task 2. Computing summary statistics using numpy
 
@@ -27,12 +29,16 @@ Learning objectives:
   - Answer the questions from Task 1 (except the last one) using numpy.
   - See reference at the bottom of the document.
 
+[Solution on DataJoy](https://www.getdatajoy.com/examples/55e9e231fe8ed5175c3f9d41)  
+
 
 ## Task 3. Visualizing Iris data
 
   - Create two scatter plots: sepal length vs. width and petal length vs. width. Use different color/symbols for the different classes (Setosa/Versicolour/Virginica).
   - Create box plots for comparing the four attributes (for all classes). I.e., 4 box plots, one for each attribute.
   - Create box plots for comparing one of the attributes (e.g., sepal length) across the three classes. I.e., 3 box plots, one for each class.
+
+[Solution on DataJoy](https://www.getdatajoy.com/examples/55e9e479fe8ed5175c3f9d45)  
 
 
 ## Task 4. Setting up local environment
@@ -45,7 +51,9 @@ Learning objectives:
 
   - Compute frequency and mode for a selected categorical attribute.
   - Compute mean, median, and variance for a selected continuous attribute, for each of the two classes (>50K, <=50K).
-  
+
+[Solution on DataJoy](https://www.getdatajoy.com/examples/55e9e70a896c84651dfcfec7)  
+
 
 ## Task 6. Visualizing Adult data
 
@@ -56,6 +64,8 @@ Learning objectives:
     * Create scatter plots with various pairs of continuous attributes (e.g., capital-gain vs. capital-loss).
     * Try to add a 3rd or 4th attribute to the scatter plot by using different symbols/shapes, colors, sizes, etc.
     * The adventurous ones can even try [Star plots](http://matplotlib.org/examples/api/radar_chart.html) or [Chernoff faces](http://healthyalgorithms.com/2012/11/12/dataviz-in-python-chernoff-faces-with-matplotlib/)
+
+[Solution on DataJoy](https://www.getdatajoy.com/examples/55e9e8befe8ed5175c3f9d4b)  
 
 
 ## References

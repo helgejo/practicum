@@ -58,7 +58,7 @@ adult_data = load_adult_data("../data/adult.data")
 # ## Visualizations
 # These are just two simple examples. You should do some more.
 
-# 1. Box plot for comparing hours-per-week across various types of education
+# ### Box plot for comparing hours-per-week across various types of education
 plotdata = []  # this is a list of lists holding the data for the boxplot
 
 # Get different education types
@@ -77,7 +77,7 @@ plt.ylabel("Hours per week")
 plt.xticks(range(1, len(edu_types) + 1), sorted(edu_types), rotation='vertical')  # rotate the labels
 plt.show()
 
-# 2. Age histrogram break down by gender
+# ### Age histrogram break down by gender
 age_male = [x['age'] for x in adult_data if x['sex'] == "Male"]
 age_female = [x['age'] for x in adult_data if x['sex'] == "Female"]
 plt.clf()  # this is needed to clear the current figure (prevents multiple labels)
