@@ -23,7 +23,7 @@ Learning objectives:
   
 ## Task 2. Computing summary statistics using numpy
 
-  - Load the Iris dataset into a 150x4 numpy array.
+  - Load the Iris dataset into a 4x150 numpy array.
   - Answer the questions from Task 1 (except the last one) using numpy.
   - See reference at the bottom of the document.
 
