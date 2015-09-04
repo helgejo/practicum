@@ -90,13 +90,15 @@ def aad(elements):
 
 # Compute the Median Absolute Deviation (MAD)
 def mad(elements):
-    # TODO
-    return 0
+    diffs = []
+    m = mean(elements)
+    for x in elements:
+        diffs.append(abs(x-m))
+    return median(diffs)
 
 # Compute the Interquartile Range (IQR)
 def iqr(elements):
-    # TODO
-    return 0
+    return percentile(elements, 75) - percentile(elements, 25)
 
 
 iris_data = load_iris_data("../data/iris.data")
@@ -147,4 +149,8 @@ print(percentile([x['sepal_width'] for x in iris_data], 70))
 # Range (IQR) for `petal length` (for all classes together).
 # Answer: AAD: 1.56192
 print(aad([x['petal_length'] for x in iris_data])) 
+# Answer: MAD: 1.7913
+print(mad([x['petal_length'] for x in iris_data]))
+# Answer: IQR: 3.5
+print(iqr([x['petal_length'] for x in iris_data]))
 
