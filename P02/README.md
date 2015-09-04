@@ -63,4 +63,7 @@ Learning objectives:
   - [Numpy arrays](http://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array)
   - [Numpy statistics](http://docs.scipy.org/doc/numpy/reference/routines.statistics.html)
   - [Matplotlib plotting framework](http://matplotlib.org/api/pyplot_api.html)
+  - [Plotting examples on DataJoy](https://www.getdatajoy.com/examples/549f08816e8e238a185a9056)
+  - [BoxPlot examples on DataJoy](https://www.getdatajoy.com/examples/54ea09826e8e238a185a9068)
+  - [How to make beautiful data visualizations in Python with matplotlib](http://www.randalolson.com/2014/06/28/how-to-make-beautiful-data-visualizations-in-python-with-matplotlib/)
     

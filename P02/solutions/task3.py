@@ -46,3 +46,46 @@ def load_iris_data(filename):
     return records
 
 iris_data = load_iris_data("../data/iris.data")
+
+# Load data into a numpy array
+arr = np.array([
+    [x['sepal_length'] for x in iris_data],
+    [x['sepal_width'] for x in iris_data],
+    [x['petal_length'] for x in iris_data],
+    [x['petal_width'] for x in iris_data],
+], float)
+
+# class colors
+cc = ["red"] * 50 + ["blue"] * 50 + ["green"] * 50
+
+# Scatter plot: sepal length vs. width
+plt.clf()  # this is needed to clear the current figure (prevents multiple labels)
+plt.scatter(arr[0], arr[1], c=cc)
+plt.title("Sepal length vs. width")
+plt.xlabel("Sepal length")
+plt.ylabel("Sepal width")
+plt.show()
+
+# Scatter plot: petal length vs. width
+plt.clf()  # this is needed to clear the current figure (prevents multiple labels)
+plt.scatter(arr[2], arr[3], c=cc)
+plt.title("Petal length vs. width")
+plt.xlabel("Petal length")
+plt.ylabel("Petal width")
+plt.show()
+
+# Box plot for comparing the four attributes
+plt.clf()  # this is needed to clear the current figure (prevents multiple labels)
+# You can also supply the data as [arr[0],arr[1],arr[2],arr[3]] --  we use the tolist() method ]
+# of numpy arrays here to achieve this.
+plt.boxplot(arr.tolist())
+plt.title("Attribute comparison")
+plt.xticks([1, 2, 3, 4], ["sepal length", "sepal width", "petal length", "petal width"])
+plt.show()
+
+# Box plot for comparing one attribute (sepal length) across the three classes
+plt.clf()  # this is needed to clear the current figure (prevents multiple labels)
+plt.boxplot([arr[0,0:50], arr[0,50:100], arr[0,100:150]])
+plt.title("Sepal length")
+plt.xticks([1, 2, 3], ["Setosa", "Versicolor", "Virginica"])
+plt.show()

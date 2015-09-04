@@ -54,3 +54,33 @@ arr = np.array([
     [x['petal_width'] for x in iris_data],
 ], float)
 
+
+# ## Answers to questions
+
+# What is the mean `sepal length` for Iris Setosa?
+# Answer: 5.006
+print(np.mean(arr[0,0:50]))
+
+
+# What is the median `petal length` for Iris Virginica?
+# Answer: 5.55
+print(np.median(arr[2,100:150]))
+
+
+# What is the range of `sepal width` for Iris Versicolour?
+# Answer: 1.4
+print(np.ptp(arr[1,50:100]))
+
+
+# Which class (Setosa/Versicolour/Virginica) shows the highest variance in `petal width`?
+print(np.var(arr[3,0:50]))  # Setosa
+print(np.var(arr[3,50:100]))  # Versicolour
+print(np.var(arr[3,100:150]))  # Virginica
+# Answer: Virginica (0.0739)
+
+
+# What is the 70% percentile for `sepal length` and `sepal width` (for all classes together)?
+# Answer: 6.3 for sepal length
+print(np.percentile(arr[0], 70))  # sepal length
+# Answer: 3.2 for sepal width
+print(np.percentile(arr[1], 70))  # sepal width

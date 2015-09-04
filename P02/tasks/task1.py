@@ -35,10 +35,10 @@ def load_iris_data(filename):
         for row in csvreader:
             if len(row) == 5:  # if we have 4 fields in that line
                 records.append({
-                    "sepal_length": row[0],
-                    "sepal_width": row[1],
-                    "petal_length": row[2],
-                    "petal_width": row[3],
+                    "sepal_length": float(row[0]),
+                    "sepal_width": float(row[1]),
+                    "petal_length": float(row[2]),
+                    "petal_width": float(row[3]),
                     "class": row[4]
                 })
     return records
