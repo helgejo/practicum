@@ -10,8 +10,8 @@
 # | ----------------------- | -------- | ---------- |
 # | Decision tree           |     0.86 |       0.14 |
 # | Nearest Neighbors (k=3) |     0.98 |       0.02 |
-# | Naive Bayes             |     1.00 |       0.00 |
-# | SVM                     |     0.98 |       0.02 |
+# | Naive Bayes (Gaussian)  |     1.00 |       0.00 |
+# | SVM (linear kernel)     |     0.98 |       0.02 |
 # | Random Forest           |     0.94 |       0.06 |
 #
 #   - Documentation for the classifiers can be found here:
@@ -51,7 +51,7 @@ def evaluate(predictions, true_labels):
     return 0
 
 
-# import some data to play with
+# Import the Iris dataset
 iris = datasets.load_iris()
 
 # ### Split the data into training and test sets

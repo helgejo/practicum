@@ -46,7 +46,7 @@ def evaluate(predictions, true_labels):
     return 0
 
 
-# import some data to play with
+# Import the Iris dataset
 iris = datasets.load_iris()
 
 # ### Split the data into training and test sets
