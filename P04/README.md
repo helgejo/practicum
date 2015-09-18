@@ -54,8 +54,11 @@ Learning objectives:
 ## Task 4. Comparing two classifiers on the Cylinder Bands dataset
 
   - Divide the Cylinder Bands dataset into 80% training and 20% test sets randomly
-  - Compare the performance of two classifiers by increasing the amount of training data incrementally
+  - Compare the performance of two classifiers in terms of F1-measure (by increasing the amount of training data incrementally)
   - Plot performance as a function of training data available
+    * Use 20%, 40%, ..., 100% of your training data for training
+    * For each, evaluate the performance of both models in terms of F1-score
+    * Make a plot with training data size on the X-axis and F1-score on the Y-axis
 
 
 ## Task 5. Working on Assignment 1
