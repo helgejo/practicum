@@ -13,6 +13,7 @@
 from __future__ import division
 
 from sklearn import datasets
+from sklearn import tree  # you only need this if you want to visualize the tree
 from sklearn.tree import DecisionTreeClassifier
 
 # ### Evaluating predictions
@@ -55,6 +56,14 @@ clf = DecisionTreeClassifier()
 
 # ### Train the classifier
 clf.fit(train_x, train_y)
+
+# It is also possible to visualize the tree and save it to a file
+# Uncomment the two lines below to save the visualization to a .dot file
+#with open("iris.dot", 'w') as f:
+#    f = tree.export_graphviz(clf, out_file=f)
+
+# The dot file can be converted to a pdf on linux using this command:
+# "dot -Tpdf iris.dot -o iris.pdf"
 
 # ### Apply it to the test data
 predictions = clf.predict(test_x)
