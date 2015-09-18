@@ -8,7 +8,7 @@
 #
 # | Method            | Accuracy | Error rate |
 # | ----------------- | -------- | ---------- |
-# | Decision tree     | 0.86     | 0.14       |
+# | Decision tree     |     0.86 |       0.14 |
 # | Nearest Neighbors |          |            |
 # | Naive Bayes       |          |            |
 # | SVM               |          |            |
@@ -64,15 +64,23 @@ for i in range(len(iris.data)):
         train_x.append(iris.data[i])
         train_y.append(iris.target[i])
 
-# ### Create a decision tree classifier object
+# ### Decision tree
 clf = DecisionTreeClassifier()
-
-# ### Train the classifier
 clf.fit(train_x, train_y)
-
-# ### Apply it to the test data
 predictions = clf.predict(test_x)
-
-# ### Evaluate the predictions
 evaluate(predictions, test_y)
+# Accuracy:    0.86
+# Error rate:  0.14
+
+# ### Nearest Neighbors
+# TODO
+
+# ### Naive Bayes
+# TODO
+
+# ### SVM
+# TODO
+
+# ### Random Forest
+# TODO
 
