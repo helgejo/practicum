@@ -5,7 +5,7 @@ Learning objectives:
 
   - Introduction to scikit-learn
   - Using and comparing various classification algorithms in scikit-learn
-  - Working on Assignment 1
+  - Computing classification metrics (accuracy, error rate, F1-measure)
   
 
 ## Task 0. Scikit-learn introduction
@@ -20,6 +20,10 @@ Learning objectives:
   - Train a decision tree classifier and apply it on the test data
   - See [this document](http://scikit-learn.org/stable/modules/tree.html#tree-classification) for help
   - Evaluate the predictions: compute accuracy and error rate
+
+[Solution on DataJoy](https://www.getdatajoy.com/examples/55fc6a7afe8ed5175c3f9df6)  
+
+See also the data folder for the generated decision tree in pdf format.
 
   
 ## Task 2. Comparing different classifiers on the Iris dataset
@@ -41,14 +45,22 @@ Learning objectives:
     * [SVM](http://scikit-learn.org/stable/modules/svm.html)
     * [Random Forest](http://scikit-learn.org/stable/modules/ensemble.html#forests-of-randomized-trees)
   
+[Solution on DataJoy](https://www.getdatajoy.com/examples/55fc6cc2fe8ed5175c3f9df8)  
+
 
 ## Task 3. Performing classification on the Cylinder Bands dataset
 
   - Download the Cylinder Bands dataset from the mldata.org repository
     * See [this document](http://scikit-learn.org/stable/datasets/index.html#downloading-datasets-from-the-mldata-org-repository) for help
     * [Cylinder Bands dataset on mldata.org](http://mldata.org/repository/data/viewslug/uci-20070111-cylinder-bands/)
+    * [Dataset description](https://archive.ics.uci.edu/ml/datasets/Cylinder+Bands)
+  - The dataset requires preprocessing
+    * Nominal attributes need to be binarized
+    * Missing values need to be handled for numerical attributes (e.g., replaced by the mean value for that attribute)
   - Train a classifier (any classifier) and evaluate its performance using cross-validation
     * See [this document](http://scikit-learn.org/stable/modules/cross_validation.html) for help
+
+[Solution on DataJoy](https://www.getdatajoy.com/examples/55fc85c0fe8ed5175c3f9dfa)  
   
 
 ## Task 4. Comparing two classifiers on the Cylinder Bands dataset
@@ -57,11 +69,10 @@ Learning objectives:
   - Compare the performance of two classifiers in terms of F1-measure (by increasing the amount of training data incrementally)
   - Plot performance as a function of training data available
     * Use 20%, 40%, ..., 100% of your training data for training
-    * For each, evaluate the performance of both models in terms of F1-score
+    * For each, evaluate the performance of both models in terms of the F1-measure
     * Make a plot with training data size on the X-axis and F1-score on the Y-axis
 
-
-## Task 5. Working on Assignment 1
+[Solution on DataJoy](https://www.getdatajoy.com/examples/55fc8f65896c84651dfcffa9)  
 
   
 ## References
