@@ -15,6 +15,8 @@ Learning objectives:
   - Repeat until the cluster assignments change for less than 1% of the data points
   - Visualize the cluster assignments and centroids after each iteration
 
+[Solution on DataJoy](https://www.getdatajoy.com/examples/560528d1fe8ed5175c3f9e26)  
+
 
 ## Task 2. Implementing Bisecting K-Means clustering
   
