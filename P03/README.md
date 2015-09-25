@@ -35,6 +35,7 @@ C4.5 is an extension of ID3 that accounts for missing values, continuous attribu
   - Test your implementation on a toy-sized dataset first, before applying it on the Adult data
   - You don't necessarily need to use all the attributes
   - Some variable transformaton (e.g., grouping values) might help
+  - Stop the recursion once you don't have sufficient number of observations (e.g., at least X training instances) and use the majority class
   - There are numerous resources out there using the Adult dataset
     * [Detailed analysis of the attributes](https://www.valentinmihov.com/2015/04/17/adult-income-data-set/)
     * [Some hints on how to discretize continuous attributes (age, hours per week, etc.)](http://artax.karlin.mff.cuni.cz/r-help/library/arules/html/Adult.html) 
