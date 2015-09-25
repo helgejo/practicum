@@ -15,6 +15,7 @@ Learning objective:
     * Determine when to stop splitting
   - You can look at two specific decision tree algorithms, ID3 and C4.5, to get some ideas on how to address these issues.
 
+
 ## ID3
 
 The basic ideas behind ID3:
@@ -29,6 +30,18 @@ The basic ideas behind ID3:
 C4.5 is an extension of ID3 that accounts for missing values, continuous attribute values, pruning of decision trees, etc.
 
 
+## Some hints for the assignment
+
+  - Test your implementation on a toy-sized dataset first, before applying it on the Adult data
+  - You don't necessarily need to use all the attributes
+  - Some variable transformaton (e.g., grouping values) might help
+  - There are numerous resources out there using the Adult dataset
+    * [Detailed analysis of the attributes](https://www.valentinmihov.com/2015/04/17/adult-income-data-set/)
+    * [Some hints on how to discretize continuous attributes (age, hours per week, etc.)](http://artax.karlin.mff.cuni.cz/r-help/library/arules/html/Adult.html) 
+    * [Some more hints including grouping values (country, education, etc.)](http://scg.sdsu.edu/dataset-adult_r/)
+    * [MSc thesis by xxxxxxx](http://www.dataminingmasters.com/uploads/studentProjects/Earning_potential_report.pdf)
+
+    
 ## References
 
   - [ID3 in Wikipedia](https://en.wikipedia.org/wiki/ID3_algorithm)
