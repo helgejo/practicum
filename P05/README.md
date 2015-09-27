@@ -5,7 +5,7 @@ Learning objectives:
 
   - Implementing K-Means and Bisecting K-Means clustering algorithms
   - Implementing Hierarchical Agglomerative Clustering using different cluster proximities
-  - Using clustering algorithms in scikit-learn
+  - Visualizing clusters (scatterplots and dendograms)
   
 
 ## Task 1. Implementing K-Means clustering
@@ -24,6 +24,8 @@ Learning objectives:
   - Measure the quality of the resulting clustering in terms of Sum of Squared Error (SSE)
     * How does it compare to the SSE of the 'true' clustering?
 
+[Solution on DataJoy](https://www.getdatajoy.com/examples/56080339896c84651dfcffe1)  
+
 
 ## Task 3. Implementing Hierarchical Agglomerative Clustering
 
@@ -31,18 +33,4 @@ Learning objectives:
   - Implement the Single link (MIN), Complete link (MAX), and Group average methods for comparing cluster proximities
   - Bonus: visualize the different clusterings using dendograms
 
-
-## Task 4. Implementing K-Means clustering using scikit-learn
-
-  - Using the dataset from Task 1, perform K-means clustering using scikit-learn
-  - Visualize the resulting clusters
-  - See [this document](http://scikit-learn.org/stable/modules/clustering.html#k-means) for help
-
-  
-## Task 5. Implementing Hierarchical Agglomerative Clustering clustering using scikit-learn
-
-  - Cluster the dataset from Task 3 using scikit-learn
-  - Compare the different available cluster proximity methods available
-  - See [this document](http://scikit-learn.org/stable/modules/clustering.html#hierarchical-clustering) for help
-  - Bonus: visualize the different clusterings using dendograms
-    
+[Solution on DataJoy](https://www.getdatajoy.com/examples/56080495fe8ed5175c3f9e33)  
