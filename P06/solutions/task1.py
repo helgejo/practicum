@@ -35,13 +35,22 @@ plt.show()
 
 # ## K-Means clustering with configuration 1 (K=3, 10 iterations, and random centroid selection)
 
-# Perform clustering
-# TODO
+# Init clustering method
+clustering = KMeans(n_clusters=3, max_iter=10, init="random")
+# Fit model to the data
+clustering.fit(points)
+# Predict cluster for each data point
+labels = clustering.predict(points)
+# Get the centroids
+centroids = clustering.cluster_centers_
 
 # Visualize the resulting clusters and cluster centroids
 plt.clf()
 plt.title('K-Means using K=3, 10 iterations, and random centroid selection')
-# TODO
+# Data points
+plt.scatter([x[0] for x in points], [x[1] for x in points], c=labels, marker='o', s=50)
+# Centroids
+plt.scatter([x[0] for x in centroids], [x[1] for x in centroids], c=range(len(centroids)), marker="+", s=250)
 plt.show()
 
 
@@ -49,13 +58,27 @@ plt.show()
 
 # Define the centroids manually
 K = 6
-# TODO
+centr_init = []
+for i in range(K):
+    centr_init.append([-3 + i, 6 - i])
 
-# Perform clustering
-# TODO
+# Init clustering method.
+# Since we provide the centroids manually, we set the n_init (the number of time the k-means algorithm will be run
+# with different centroid seeds) to 1.
+clustering = KMeans(n_clusters=K, max_iter=3, n_init=1, init=np.array(centr_init))
+# Fit model to the data
+clustering.fit(points)
+# Predict cluster for each data point
+labels = clustering.predict(points)
+# Get the centroids
+centroids = clustering.cluster_centers_
 
 # Visualize the resulting clusters and cluster centroids
 plt.clf()
 plt.title('K-Means using K=6, 3 iterations, and manual centroid selection')
-# TODO
+plt.scatter([x[0] for x in points], [x[1] for x in points], c=labels, marker='o', s=50)
+# Initial (manually provided) centroids (marked as x)
+plt.scatter([x[0] for x in centr_init], [x[1] for x in centr_init], c=range(len(centr_init)), marker="x", s=50)
+# Updated centroids (marked as +)
+plt.scatter([x[0] for x in centroids], [x[1] for x in centroids], c=range(len(centroids)), marker="+", s=250)
 plt.show()

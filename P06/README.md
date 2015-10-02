@@ -8,7 +8,7 @@ Learning objectives:
   - Document similarity calculation
   
 
-## Task 1. Perform K-Means clustering using scikit-learn
+## Task 1. K-Means clustering using scikit-learn
 
   - A set of 2D data points are given (generated artificially)
   - Perform K-means clustering using scikit-learn using the following two configurations:
@@ -16,6 +16,8 @@ Learning objectives:
     * K=6, 3 iterations, and providing the initial centroids manually
   - Visualize the resulting clusters and the cluster centroids
   - See [this document](http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html) for help
+
+[Solution on DataJoy](https://www.getdatajoy.com/examples/560ec3d4896c84651dfd0017)  
 
 
 ## Task 2. Text preprocessing and document similarity
@@ -29,14 +31,18 @@ Learning objectives:
   - Implement a function that computes the Jaccard similarity of two term vectors
   - Implement a function that computes the cosine similarity of two term vectors
 
+[Solution on DataJoy](https://www.getdatajoy.com/examples/560ec51dfe8ed5175c3f9e58)  
+
 
 ## Task 3. Text preprocessing using scikit-learn
   
   - Create the document-term matrix from Task 2 using scikit-learn
   - See [this document](http://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html)
 
+[Solution on DataJoy](https://www.getdatajoy.com/examples/560ec5bf896c84651dfd001c)  
 
-## Task 4. Perform Hierarchical Agglomerative Clustering of documents using scikit-learn
+
+## Task 4. Hierarchical Agglomerative Clustering of documents using scikit-learn
 
   - Cluster the documents from Task 2 using Hierarchical Agglomerative Clustering with scikit-learn
   - Use cosine similarity
@@ -45,6 +51,8 @@ Learning objectives:
   - See [this document](http://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html) for help
   - Can you introduce a similarity threshold for merging clusters? Or, in other words, can you extract the distance between clusters? 
     
+[Solution on DataJoy](https://www.getdatajoy.com/examples/560ec7b1896c84651dfd001e)  
+
 
 ## References
 

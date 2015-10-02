@@ -142,7 +142,7 @@ linkages_avg = hac(dist, "avg")
 
 
 # ### Visualize the clusterings using dendrograms
-# (See http://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html#scipy.cluster.hierarchy.linkage
+# (See http://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html
 # on how to construct the linkage matrix.)
 linkage_matrix = np.array(linkages_min)
 plt.clf()

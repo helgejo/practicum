@@ -19,4 +19,13 @@ docs = [
     "The Lion King"
 ]
 
-cv = CountVectorizer()
+cv = CountVectorizer(stop_words="english")
+
+# Learns the vocabulary and returns the Document-term matrix
+counts = cv.fit_transform(docs)
+
+# Vocabulary
+print cv.vocabulary_
+
+# Document-term matrix
+print counts.toarray()
