@@ -1,34 +1,22 @@
-# Perform Hierarchical Agglomerative Clustering of documents using scikit-learn
-# =============================================================================
+# Text preprocessing and document similarity
+# ==========================================
 
 # Task
 # ----
-
-# - Cluster the documents from Task 2 using Hierarchical Agglomerative Clustering with scikit-learn
-# - Use cosine similarity
-# - Compare the different available cluster proximity methods available
-# - Visualize the different clusterings using dendrograms
-# - See [this document](scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html) for help
-# - Can you introduce a similarity threshold for merging clusters? Or, in other words, can you extract the distance between clusters?
+#   - Create the document-term matrix from Task 2 using scikit-learn
+#   - See [this document](http://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html)
 
 # Solution
 # --------
 
-from __future__ import division
+from sklearn.feature_extraction.text import CountVectorizer
 
-import scipy.cluster.hierarchy as hac
-import matplotlib.pyplot as plt
-from sklearn.cluster import AgglomerativeClustering
+docs = [
+    "The King's Speech",
+    "The Lord of the Rings: The Return of the King",
+    "Street Kings",
+    "The Scorpion King",
+    "The Lion King"
+]
 
-from task2 import docs, doc_term_matrix
-
-# Create document-term matrix
-dtm = doc_term_matrix(docs, display=False)
-
-# Hierarchical agglomerative clustering using scikit-learn
-
-# TODO perform clustering
-
-# TODO visualize clusterings using dendograms
-
-# TODO extract distances between clusters
+cv = CountVectorizer()

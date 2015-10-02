@@ -15,7 +15,7 @@ Learning objectives:
     * K=3, 10 iterations, and random centroid selection
     * K=6, 3 iterations, and providing the initial centroids manually
   - Visualize the resulting clusters and the cluster centroids
-  - See [this document](scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html) for help
+  - See [this document](http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html) for help
 
 
 ## Task 2. Text preprocessing and document similarity
@@ -30,13 +30,19 @@ Learning objectives:
   - Implement a function that computes the cosine similarity of two term vectors
 
 
-## Task 3. Perform Hierarchical Agglomerative Clustering of documents using scikit-learn
+## Task 3. Text preprocessing using scikit-learn
+  
+  - Create the document-term matrix from Task 2 using scikit-learn
+  - See [this document](http://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html)
+
+
+## Task 4. Perform Hierarchical Agglomerative Clustering of documents using scikit-learn
 
   - Cluster the documents from Task 2 using Hierarchical Agglomerative Clustering with scikit-learn
   - Use cosine similarity
   - Compare the different available cluster proximity methods available
   - Visualize the different clusterings using dendrograms
-  - See [this document](scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html) for help
+  - See [this document](http://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html) for help
   - Can you introduce a similarity threshold for merging clusters? Or, in other words, can you extract the distance between clusters? 
     
 
