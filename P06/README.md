@@ -4,6 +4,8 @@ Practicum 6
 Learning objectives:
 
   - Using clustering algorithms in scikit-learn
+  - Text preprocessing
+  - Document similarity calculation
   
 
 ## Task 1. Perform K-Means clustering using scikit-learn
@@ -24,9 +26,19 @@ Learning objectives:
     * Lowercasing
     * Stopword removal
     * Suffix-s stemming
+  - Implement a function that computes the Jaccard similarity of two term vectors
   - Implement a function that computes the cosine similarity of two term vectors
-  
-  
+
+
+## Task 3. Perform Hierarchical Agglomerative Clustering of documents using scikit-learn
+
+  - Cluster the documents from Task 2 using Hierarchical Agglomerative Clustering with scikit-learn
+  - Use cosine similarity
+  - Compare the different available cluster proximity methods available
+  - Visualize the different clusterings using dendrograms
+  - See [this document](scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html) for help
+  - Can you introduce a similarity threshold for merging clusters? Or, in other words, can you extract the distance between clusters? 
+    
 
 ## References
 

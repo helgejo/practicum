@@ -5,7 +5,7 @@
 # ----
 #   - Cluster the "Italian cities" dataset (from Lecture 5) using Hierarchical Agglomerative Clustering
 #   - Implement the Single link (MIN), Complete link (MAX), and Group average methods for comparing cluster proximities
-#   - Bonus: visualize the different clusterings using dendograms
+#   - Bonus: visualize the different clusterings using dendrograms
 
 # Solution
 # --------
@@ -14,7 +14,7 @@ from __future__ import division
 
 import sys
 
-# There imports are needed for visualizing the clustering using dendograms
+# There imports are needed for visualizing the clustering using dendrograms
 from scipy.cluster.hierarchy import dendrogram
 import matplotlib.pyplot as plt
 import numpy as np
@@ -141,7 +141,7 @@ linkages_max = hac(dist, "max")
 linkages_avg = hac(dist, "avg")
 
 
-# ### Visualize the clusterings using dendograms
+# ### Visualize the clusterings using dendrograms
 # (See http://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html#scipy.cluster.hierarchy.linkage
 # on how to construct the linkage matrix.)
 linkage_matrix = np.array(linkages_min)

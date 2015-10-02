@@ -5,7 +5,7 @@ Learning objectives:
 
   - Implementing K-Means and Bisecting K-Means clustering algorithms
   - Implementing Hierarchical Agglomerative Clustering using different cluster proximities
-  - Visualizing clusters (scatterplots and dendograms)
+  - Visualizing clusters (scatterplots and dendrograms)
   
 
 ## Task 1. Implementing K-Means clustering
@@ -31,6 +31,6 @@ Learning objectives:
 
   - Cluster the "Italian cities" dataset (from Lecture 5) using Hierarchical Agglomerative Clustering
   - Implement the Single link (MIN), Complete link (MAX), and Group average methods for comparing cluster proximities
-  - Bonus: visualize the different clusterings using dendograms
+  - Bonus: visualize the different clusterings using dendrograms
 
 [Solution on DataJoy](https://www.getdatajoy.com/examples/56080495fe8ed5175c3f9e33)  

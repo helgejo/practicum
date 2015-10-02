@@ -9,6 +9,7 @@
 #     * Lowercasing
 #     * Stopword removal
 #     * Suffix-s stemming
+#   - Implement a function that computes the Jaccard similarity of two term vectors
 #   - Implement a function that computes the cosine similarity of two term vectors
 
 # Solution
@@ -44,12 +45,29 @@ def preprocess(doc):
 
 
 # Create (and print out) the document-term matrix from an input set of documents
-def doc_term_matrix(docs):
+def doc_term_matrix(docs, display=True):
     dtm = []
     for d in docs:
         terms = preprocess(d)
         # TODO create term vector out of preprocessed terms and add to matrix
+
+    if display:
+        # TODO print out doc-term matrix
+        pass
+
     return dtm
+
+
+# Compute the Jaccard similarity of two term vectors
+def jaccard(tv1, tv2):
+    # tv1 and tv2 must have the same length
+    if len(tv1) != len(tv2):
+        print "Error: term vectors must have the same length!"
+        return -1
+
+    # TODO
+
+    return 0
 
 
 # Compute the cosine similarity of two term vectors
@@ -64,8 +82,13 @@ def cosine(tv1, tv2):
     return 0
 
 
-# Create document-term matrix
-dtm = doc_term_matrix(docs)
+if __name__ == '__main__':
 
-# Compute the cosine similarity of documents
-print cosine(dtm[0], dtm[1])  # doc 0 vs doc 1
+    # Create document-term matrix
+    dtm = doc_term_matrix(docs)
+
+    # Compute the Jaccard similarity of documents
+    print jaccard(dtm[0], dtm[1])  # doc 0 vs doc 1
+
+    # Compute the cosine similarity of documents
+    print cosine(dtm[0], dtm[1])  # doc 0 vs doc 1
