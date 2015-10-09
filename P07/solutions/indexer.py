@@ -81,6 +81,7 @@ class Index(object):
 
     def __init__(self):
         self.index = {}  # the inverted index is represented as a dictionary (terms) of lists (postings, i.e., docs with frequencies)
+        self.docs = {}  # the document metadata store is represented as a dictionary (docID) of dictionaries (length, date, title)
 
     def add_posting(self, term, doc_id, payload):
         if term not in self.index:  # if term not in index, initialize empty posting list
@@ -88,11 +89,12 @@ class Index(object):
         # append new posting to the posting list
         self.index[term].append(Posting(doc_id, payload))
 
-    # Index a given document
+    # Index a given document and returns the length of the document
     def index_doc(self, doc_id, date, title, body):
         terms = parse(title + " " + body)  # include both title and body content in the index
         for term, cnt in Counter(terms).iteritems():
             self.add_posting(term, doc_id, cnt)
+        return len(terms)
 
     # Create an index from an input XML file
     def index_file(self, input_file):
@@ -108,17 +110,29 @@ class Index(object):
                 continue
             title = doc.getElementsByTagName("TITLE")[0].firstChild.nodeValue
             body = doc.getElementsByTagName("BODY")[0].firstChild.nodeValue
-            self.index_doc(doc_id, date, title, body)
-            # TODO, Task 2: Add document to the document metadata store
+            doclen = self.index_doc(doc_id, date, title, body)
+            # Add document to the document metadata store
+            self.docs[doc_id] = {
+                "length": doclen,
+                "date": date,
+                "title": title
+                }
 
-    # Save the index to a file
-    def write_to_file(self, filename):
-        f = open(filename, "w")
+    # Save the index and document metadata files
+    def write_to_file(self, filename_index, filename_meta):
+        # Write index to file
+        f = open(filename_index, "w")
         for term, postings in self.index.iteritems():
             f.write(term)
             for posting in postings:
                 f.write(" " + str(posting.doc_id) + ":" + str(posting.payload))
             f.write("\n")
+        f.close()
+
+        # Write document metadata to file
+        f = open(filename_meta, "w")
+        for doc_id, meta in self.docs.iteritems():
+            f.write("\t".join([str(doc_id), str(meta['length']), meta['date'], meta['title']]) + "\n")
         f.close()
 
     # Load the index from a file
@@ -131,4 +145,4 @@ if __name__ == "__main__":
     index = Index()
     # You need to change the paths to "../data" if you are working on your local machine
     index.index_file("../data/reuters21578-000.xml")
-    index.write_to_file("../data/index.txt")
+    index.write_to_file("../data/index.txt", "../data/meta.txt")
