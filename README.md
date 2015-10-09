@@ -7,4 +7,5 @@ DAT630 practicum
   * P04: Using various classification algorithms in scikit-learn
   * P05: Implementing various clustering algorithms from scratch
   * P06: Using various clustering algorithms in scikit-learn; text preprocessing 
+  * P07: Indexing and searching a small document collection
   
