@@ -20,7 +20,10 @@ import whoosh.index as index
 from whoosh.fields import Schema, ID, TEXT
 
 index_dir = "../data/index_cacm"
+query_file = "../data/cacm.query.xml"
 default_field = "content"
+
+
 
 
 # Compute the TFIDF weight of a term

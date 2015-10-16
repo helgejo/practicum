@@ -44,7 +44,7 @@ Learning objectives:
  - Using the retrieval algorithm from Task 3, process the queries in `data/cacm.query.xml` and output the top 10 results to a single file, `data/cacm.out`, in the following format (one result per line) `queryID Q0 docID score`
 
 
-## Task 5. Evaluate results
+## Task 5. Evaluate retrieval effectiveness
 
   - The ground truth is in `data/cacm.rel`. The format is `queryID Q0 docID rel` where `rel` is 1 if the document is relevant and 0 otherwise. 
     * This file contains only the relevant documents so the value will always be 1. This means that everything that is not in this file counts as non-relevant.

@@ -15,7 +15,7 @@ import os.path
 import whoosh.index as index
 from whoosh.fields import Schema, ID, TEXT
 
-index_dir = "index_cacm"
+index_dir = "../data/index_cacm"
 
 
 def create_index():
