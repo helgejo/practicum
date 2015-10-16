@@ -13,18 +13,30 @@
 
 from __future__ import division
 
-import os.path
 import math
 from collections import Counter
 import whoosh.index as index
-from whoosh.fields import Schema, ID, TEXT
+
+# For parsing the XML file
+from xml.dom import minidom
+
 
 index_dir = "../data/index_cacm"
 query_file = "../data/cacm.query.xml"
+output_file = "../data/cacm.out"
 default_field = "content"
 
 
+# Load queries from the query xml file
+def load_queries():
+    queries = []
+    xmldoc = minidom.parse(query_file)
+    for query in xmldoc.getElementsByTagName("query"):
+        query_id = query.getElementsByTagName("number")[0].firstChild.nodeValue
+        text = query.getElementsByTagName("text")[0].firstChild.nodeValue
+        queries.append({'id': query_id, 'text': text})
 
+    return queries
 
 # Compute the TFIDF weight of a term
 def tfidf(reader, term, count, length):
@@ -52,7 +64,7 @@ def retrieve_vsm(reader, query):
         
         # ignore terms not in the index
         if reader.frequency(default_field, t) == 0:
-            print "Query term", t, "ignored"
+            #print "Query term", t, "ignored"
             continue
 
         # calculate w_t,q
@@ -89,21 +101,22 @@ ix = index.open_dir(index_dir)
 # Use the reader to get statistics
 reader = ix.reader()
 
-# TODO
-# Process the query XML file `data/cacm.query.xml` 
-# and write all the output to a single file `data/cacm.out`
+queries = load_queries()
 
-queries = []  # TODO this should come from the query.xml file
+outfile = open(output_file, "w")
 
 for query in queries:
+    print "Processing query number", query['id']
 
     # Retrieve documents using the vector space model
-    res = retrieve_vsm(reader, query)
-    
+    res = retrieve_vsm(reader, query['text'])
+
+    # Output max 10 results
     for docnum in sorted(res, key=res.get, reverse=True)[:10]:
         # Look up our docID
         stored = reader.stored_fields(docnum)
-        # TODO write `docID Q0 queryID score` into `data/cacm.out`
-        print stored['id'], res[docnum]  # doc id and score
-    
+        # Write `docID Q0 queryID score` into `data/cacm.out`
+        outfile.write(stored['id'] + " Q0 " + query['id'] + " " + str(res[docnum]) + "\n")
+
+outfile.close()
 ix.close()

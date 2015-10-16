@@ -40,7 +40,7 @@ def create_index():
         doc_id = doc.attributes['id'].value
         content = doc.firstChild.data
         print doc_id
-        # TODO add document
+        # Add document
         # Notes:
         # - Indexed text fields must be passed a unicode value. (use "str".decode())
         # - Fields can be left empty, i.e., we don't have to fill in a value for every field.
