@@ -3,7 +3,7 @@ Practicum 8
 
 Learning objectives:
 
-  - Indexing and searching a document collection using Whoosh
+  - Indexing a document collection using Whoosh
   - Evaluating retrieval using various search effectiveness metrics
 
 
@@ -39,15 +39,16 @@ Learning objectives:
   - Take Task 4 from the last practicum (P07) and update the code such that the term statistics are taken from the Whoosh index we built in Task 2
 
 
-## Task 4. Ranking documents using Whoosh
+## Task 4. Generate retrieval results in "batch mode"
+
+ - Using the retrieval algorithm from Task 3, process the queries in `data/cacm.query.xml` and output the top 10 results to a single file, `data/cacm.out`, in the following format (one result per line) `queryID Q0 docID score`
 
 
-
-## Task 5. Evaluating results
+## Task 5. Evaluate results
 
   - The ground truth is in `data/cacm.rel`. The format is `queryID Q0 docID rel` where `rel` is 1 if the document is relevant and 0 otherwise. 
     * This file contains only the relevant documents so the value will always be 1. This means that everything that is not in this file counts as non-relevant.
-  - Write a script that computes P@5, P@10, Average Precision, and Reciprocal Ranks for each query as well as the averages over the entire query set.
+  - Write a script that computes P@5, P@10, Average Precision, and Reciprocal Ranks for each query as well as the averages over the entire query set for the output file generated in Task 4.
 
 
 ## References

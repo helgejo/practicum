@@ -21,6 +21,7 @@ from xml.dom import minidom
 index_dir = "../data/index_cacm"
 input_file = "../data/cacm.xml"
 
+
 def create_index():
     # We create the index schema.
     schema = Schema(id=ID(stored=True), content=TEXT)
@@ -38,12 +39,12 @@ def create_index():
     for doc in xmldoc.getElementsByTagName("doc"):
         doc_id = doc.attributes['id'].value
         content = doc.firstChild.data
-        print doc_id, content
+        print doc_id
         # TODO add document
         # Notes:
         # - Indexed text fields must be passed a unicode value. (use "str".decode())
         # - Fields can be left empty, i.e., we don't have to fill in a value for every field.
-        writer.add_document()
+        writer.add_document(id=doc_id, content=content)
 
     # Calling commit() on the IndexWriter saves the added documents to the index.
     writer.commit()
@@ -63,7 +64,11 @@ def read_index():
     # Use the reader to get statistics
     reader = ix.reader()
 
-    # TODO
+    # Number of documents the index contains
+    print reader.doc_count()  # 3204
+
+    # Number of times the term "reference" appears in the content field
+    print reader.frequency("content", "reference")  # 81
 
     ix.close()
 
