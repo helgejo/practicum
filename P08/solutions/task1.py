@@ -30,7 +30,7 @@ docs = [
     {'id': "004", 'title': "Final example document", 'content': "Document, second document, third document, my document."},
 ]
 
-index_dir = "index"
+index_dir = "../data/index"
 
 
 def create_index():

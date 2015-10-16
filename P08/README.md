@@ -36,6 +36,7 @@ Learning objectives:
 
 ## Task 3. Implement TFIDF retrieval by getting statistics from the Woosh index
 
+  - Take Task 4 from the last practicum (P07) and update the code such that the term statistics are taken from the Whoosh index we built in Task 2
 
 
 ## Task 4. Ranking documents using Whoosh
