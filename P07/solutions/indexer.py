@@ -44,6 +44,7 @@ def striptags(text):
     p = re.compile(r'<.*?>')
     return p.sub('', text)
 
+
 # Parse an input text and return a list of indexable terms
 def parse(text):
     terms = []
@@ -66,6 +67,7 @@ def parse(text):
         terms.append(term)
 
     return terms
+
 
 # A "posting" is an entry in the index.
 # We use the payload to store a single number, the frequency of the term in the document.
@@ -135,10 +137,58 @@ class Index(object):
             f.write("\t".join([str(doc_id), str(meta['length']), meta['date'], meta['title']]) + "\n")
         f.close()
 
-    # Load the index from a file
-    def load_from_file(self, filename):
-        # TODO, Task 3
-        pass
+    # Load index and document metadata from a file
+    def load_from_file(self, filename_index, filename_meta):
+        # Load index
+        self.index = {}
+        for line in open(filename_index, "r"):
+            tmp = line.split()
+            term = tmp[0]
+            self.index[term] = []
+            for i in range(1,len(tmp)):
+                [doc_id, cnt] = tmp[i].split(":")
+                self.index[term].append(Posting(doc_id, cnt))
+
+        # Load document metadata
+        self.docs = {}
+        for line in open(filename_meta, "r"):
+            tmp = line.split("\t")
+            doc_id = tmp[0]
+            self.docs[doc_id] = {
+                "length": int(tmp[1]),
+                "date": tmp[2],
+                "title": tmp[3]
+                }
+
+    # Return a set of document IDs that contain the given term,
+    # or the set of all documents if there is no term given
+    # (Added for Task 3)
+    def get_docs_set(self, term=None):
+        if term is None:
+            return set(self.docs.keys())
+        if term in self.index:
+            return set([p.doc_id for p in self.index[term]])
+        return set()
+
+    # Get metadata for a given document
+    # (Added for Task 3)
+    def get_doc_meta(self, doc_id):
+        if doc_id in self.docs:
+            return self.docs[doc_id]
+        return None
+
+    # Get the number of documents in the index
+    # (Added for Task 4)
+    def num_docs(self):
+        return len(self.docs)
+
+    # Get the posting list for a given term
+    # (Added for Task 4)
+    def get_postings(self, term):
+        if term in self.index:
+            return self.index[term]
+        return None
+
 
 # If it runs as a stand-alone program
 if __name__ == "__main__":
