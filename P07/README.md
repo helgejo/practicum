@@ -4,7 +4,7 @@ Practicum 7
 Learning objectives:
 
   - Building an inverted index and a document (meta)data store
-  - Boolean and ranked retrieval (using the Vector Space Model)
+  - Retrieval using the Boolean and Vector Space Models
 
 
 ## Notes
@@ -54,6 +54,6 @@ Learning objectives:
     * Use TF-IDF term weighting and cosine similarity
   - Display a ranked list of the top 10 matching documents, along with the corresponding relevance scores
   - Extend `indexer.py` with the necessary methods
-    * Hint: you will need a method that returns the set of documents that contain a given term
+    * Hint: you will need a method that returns the posting list for a given term
   - Homework: try some of the [different variants for TF and IDF weights](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)
     

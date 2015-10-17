@@ -47,10 +47,12 @@ def retrieve_vsm(index, query):
     pass
 
 
-# Load index
-index = Index()
-index.load_from_file("data/index.txt")
+if __name__ == "__main__":
 
-query = "united states"
-# Retrieve documents using the vector space model
-retrieve_vsm(index, query)
+    # Load index
+    index = Index()
+    index.load_from_file("data/index.txt")
+
+    query = "united states"
+    # Retrieve documents using the vector space model
+    retrieve_vsm(index, query)
