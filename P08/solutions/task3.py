@@ -1,5 +1,5 @@
-# Implement TFIDF retrieval by getting statistics from the Woosh index
-# ====================================================================
+# Retrieval using the Vector Space Model
+# ======================================
 
 # Task
 # ------
@@ -12,16 +12,13 @@
 
 from __future__ import division
 
-import os.path
 import math
 from collections import Counter
-
 import whoosh.index as index
-from whoosh.qparser import QueryParser
-from whoosh.fields import Schema, ID, TEXT
 
 index_dir = "../data/index_cacm"
 default_field = "content"
+
 
 # Compute the TFIDF weight of a term
 def tfidf(reader, term, count, length):
@@ -29,32 +26,27 @@ def tfidf(reader, term, count, length):
     idf = math.log(reader.doc_count() / reader.doc_frequency(default_field, term))
     return tf*idf
 
+
 def retrieve_vsm(reader, query):
     # Preprocess the query in a naive way
     qterms = query.split()
     qt = Counter(qterms)
 
-    # Basic algorithm
-    # - N is the number of documents
-    N = reader.doc_count()
-    # score for each doc
-    scores = {}
-    # normalizer for each doc
-    doc_norm = {}
-    # normalizer for query
-    q_norm = 0
+    N = reader.doc_count()  # number of documents
+    scores = {}  # retrieval score for each doc
+    doc_norm = {}  # score normalizer for each doc
+    q_norm = 0  # normalizer for query (could be ignored)
     
     # for each query term t
     for t, cnt in qt.iteritems():
         
         # ignore terms not in the index
         if reader.frequency(default_field, t) == 0:
-            print "Query term", t, "ignored"
+            #print "Query term", t, "ignored"
             continue
 
         # calculate w_t,q
         wtq = tfidf(reader, t, cnt, len(qterms))
-        #print t, wtq
         q_norm += wtq * wtq  # mind that the query normalizer could be ignored
         
         # for each doc in the posting list of t
@@ -72,28 +64,30 @@ def retrieve_vsm(reader, query):
             doc_norm[docnum] += wtd * wtd
             pr.next()
             
-    # scores at this points holds the counter of the cosine formula
-    # we need to divide by sqrt(q_norm * doc_norm)
+    # `scores` at this points holds the counter of the cosine formula
+    # we need to perform normslization dividing by sqrt(q_norm * doc_norm)
     for docnum, score in scores.iteritems():
         scores[docnum] = scores[docnum] / math.sqrt(q_norm * doc_norm[docnum])
 
     return scores
 
 
-# Open index
-ix = index.open_dir(index_dir)
+if __name__ == "__main__":
 
-# Use the reader to get statistics
-reader = ix.reader()
+    # Open index
+    ix = index.open_dir(index_dir)
 
-query = "algebraic language"
+    # Use the reader to get statistics
+    reader = ix.reader()
 
-# Retrieve documents using the vector space model
-res = retrieve_vsm(reader, query)
+    query = "algebraic language"
 
-for docnum in sorted(res, key=res.get, reverse=True)[:10]:
-    # Look up our docID
-    stored = reader.stored_fields(docnum)
-    print stored['id'], res[docnum]  # doc id and score
-    
-ix.close()
+    # Retrieve documents using the vector space model
+    res = retrieve_vsm(reader, query)
+
+    for docnum in sorted(res, key=res.get, reverse=True)[:10]:
+        # Look up our docID (stored field in the index)
+        stored = reader.stored_fields(docnum)
+        print stored['id'], res[docnum]  # doc id and score
+
+    ix.close()

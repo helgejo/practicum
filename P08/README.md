@@ -34,7 +34,7 @@ Learning objectives:
   - Check index statistics (see Task 1 for ideas).
 
 
-## Task 3. Implement TFIDF retrieval by getting statistics from the Woosh index
+## Task 3. Retrieval using the Vector Space Model
 
   - Take Task 4 from the last practicum (P07) and update the code such that the term statistics are taken from the Whoosh index we built in Task 2
 

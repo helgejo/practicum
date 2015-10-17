@@ -74,5 +74,5 @@ def read_index():
 
 
 if __name__ == '__main__':
-    create_index()
-    #read_index()
+    create_index()  # note that this has to be done only once
+    read_index()

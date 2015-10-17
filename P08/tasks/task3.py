@@ -1,5 +1,5 @@
-# Implement TFIDF retrieval by getting statistics from the Woosh index
-# ====================================================================
+# Retrieval using the Vector Space Model
+# ======================================
 
 # Task
 # ------
@@ -12,46 +12,46 @@
 
 from __future__ import division
 
-import os.path
 import whoosh.index as index
-from whoosh.fields import Schema, ID, TEXT
+import math
+from collections import Counter
 
 index_dir = "../data/index_cacm"
 
 
 # Compute the TFIDF weight of a term
 def tfidf(index, term, count, length):
+    # Normalized count of the term occurrences in the document
     tf = count / length
-    idf = math.log(index.num_docs() / len(index.get_postings(term)))
+    # log (N/n_k), where N is the total number of documents and
+    # n_k is the number of documents that contain `term`
+    idf = math.log(index.num_docs() / len(index.get_postings(term)))  # TODO update
     return tf*idf
 
+
+# Scoring all documents in the collection against the query
+# using the Vector Space Model
 def retrieve_vsm(index, query):
     # Preprocess the query (the same way as we preprocesssed documents)
-    qterms = parse(query)
+    qterms = parse(query)  # TODO update
     qt = Counter(qterms)
 
-    # Basic algorithm
-    # - N is the number of documents
-    N = index.num_docs()  # TODO update
-    # score for each doc
-    scores = {}
-    # normalizer for each doc
-    doc_norm = {}
-    # normalizer for query
-    q_norm = 0
-    
+    N = index.num_docs()  # number of documents  # TODO update
+    scores = {}  # retrieval score for each doc
+    doc_norm = {}  # score normalizer for each doc
+    q_norm = 0  # normalizer for query (could be ignored)
+
     # for each query term t
     for t, cnt in qt.iteritems():
-        postings = index.get_postings(t) # TODO update
+        postings = index.get_postings(t)  # TODO update
         # ignore terms not in the index
         if postings is None:
             continue
 
         # calculate w_t,q
         wtq = tfidf(index, t, cnt, len(qterms))
-        print t, wtq
         q_norm += wtq * wtq
-        
+
         # for each doc in the posting list of t
         for p in postings:
             doc_id = p.doc_id
@@ -64,27 +64,28 @@ def retrieve_vsm(index, query):
             wtd = tfidf(index, t, freq, doclen)
             scores[doc_id] += wtq * wtd
             doc_norm[doc_id] += wtd * wtd
-            
-    # scores at this points holds the counter of the cosine formula
-    # we need to divide by sqrt(q_norm * doc_norm)
+
+    # `scores` at this points holds the counter of the cosine formula
+    # we need to perform normslization dividing by sqrt(q_norm * doc_norm)
     for doc_id, score in scores.iteritems():
         scores[doc_id] = scores[doc_id] / math.sqrt(q_norm * doc_norm[doc_id])
 
     return scores
 
 
-# Open index
-ix = index.open_dir(index_dir)
+if __name__ == "__main__":
 
-# Use the reader to get statistics
-reader = ix.reader()
+    # Load index
+    index = Index()  # TODO update
+    index.load_from_file("../data/index.txt", "../data/meta.txt")
 
-query = "algebraic language"
+    # Input query
+    query = "financial japan world news"
 
-# Retrieve documents using the vector space model
-res = retrieve_vsm(index, query)
+    # Retrieve documents using the vector space model
+    res = retrieve_vsm(index, query)
 
-for doc_id in sorted(res, key=res.get, reverse=True)[:10]:
-    print res[doc_id]
-    
-ix.close()
+    # Print relevance scores and document titles for the top 10 results
+    for doc_id in sorted(res, key=res.get, reverse=True)[:10]:
+        docmeta = index.get_doc_meta(doc_id)
+        print res[doc_id], docmeta['title']
