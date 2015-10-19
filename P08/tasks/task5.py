@@ -21,6 +21,8 @@ import math
 gt_file = "../data/cacm.rel"  # ground truth file with relevance judgments
 res_file = "../data/cacm.out"  # retrieval results file, i.e., output of batch retrieval
 
+metrics = ["P5", "P10", "AP", "RR"]
+
 
 # Load the ground truth file.
 # It returns a dictionary with queryID as key and a list of relevant documents as value.
@@ -57,12 +59,9 @@ def load_res(run_file):
 
 # Computes various evaluation metrics for a given query
 def evaluate_query(gt, res):
-    eval = {
-        'P5': 0.0,
-        'P10': 0.0,
-        'RR': 0.0,
-        'AP': 0.0
-    }
+    eval = {}
+    for metric in metrics:
+        eval[metric] = 0.0
 
     # TODO compute P5, P10, RR, and AP for the given query
 
@@ -95,17 +94,16 @@ def evaluate(gt_file, res_file):
         eval_avg[metric] /= len(gt)
 
     # Print the results
-    metrics = ["P5", "P10", "AP", "RR"]
     line = "-" * (10 + 9 * len(metrics))
     print "{:<10}".format("query_id"), ("{:>8}" * len(metrics)).format(*metrics)
     print line
     # Per-query results
     for query_id in sorted(eval):
-        scores = [str(eval[query_id][metric])[:5] for metric in ["P5", "P10", "AP", "RR"]]
+        scores = [str(eval[query_id][metric])[:5] for metric in metrics]
         print "{:<10}".format(query_id), ("{:>8}" * len(metrics)).format(*scores)
     # Average results
     print line
-    scores = [str(eval_avg[metric])[:5] for metric in ["P5", "P10", "AP", "RR"]]
+    scores = [str(eval_avg[metric])[:5] for metric in metrics]
     print "{:<10}".format("Average"), ("{:>8}" * len(metrics)).format(*scores)
 
 
