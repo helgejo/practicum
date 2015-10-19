@@ -26,7 +26,7 @@ metrics = ["P5", "P10", "AP", "RR"]
 def load_gt(gt_file):
     gt = {}
     for line in open(gt_file, "r"):
-        tmp = line.split(" ")
+        tmp = line.rstrip().split(" ")
         query_id = tmp[0]
         doc_id = tmp[2]
         rel = tmp[3]
@@ -43,7 +43,7 @@ def load_gt(gt_file):
 def load_res(run_file):
     res = {}
     for line in open(run_file, "r"):
-        tmp = line.split(" ")
+        tmp = line.rstrip().split(" ")
         query_id = tmp[0]
         doc_id = tmp[2]
         # Note: we do not use the actual retrieval score, but we do assume that
