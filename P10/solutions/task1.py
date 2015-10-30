@@ -37,6 +37,7 @@ class MyTFIDFScorer(MyBaseScorer):
         tf_q = ftq / qlen
         # tfidf_t,d * tfidf_t,q
         return tf_d * idf * tf_q * idf
+        # Note for Assignment 3: this variant performs better: math.log(ftd) * idf * ftq
 
 
 if __name__ == "__main__":

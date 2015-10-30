@@ -29,10 +29,3 @@ Learning objectives:
   
   - Rank the toy document set for the given query by implementing LM scoring.
 
-
-## Task 4. Understanding BM25F scoring
-
-
-## Task 5. Understanding MLM scoring
-
-
