@@ -43,6 +43,10 @@ def pagerank(edges, iterations=3, q=0.15):
                 # if page i is pointed by page j
                 if edges[j][i] > 0:
                     pr_i += (1-q) * pr[j] / l[j]
+                # if page j has no outgoing links at all (rank sink),
+                # then we pretend that it has links to all pages
+                elif l[j] == 0:
+                    pr_i += (1-q) * pr[j] / T  # this is the same as above, just setting l[j] to T
             pr_new.append(pr_i)
 
         pr = pr_new
