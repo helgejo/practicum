@@ -13,14 +13,14 @@
 
 from __future__ import division
 
-# Graph: 1->2, 1->3, 3->1, 3-2, 3->5, 4->5, 4->6, 5->4, 5->6, 6->4
+# Graph: 1->2, 1->3, 3->1, 3->2, 3->5, 4->5, 4->6, 5->4, 5->6, 6->4
 # (This is the graph from Task 2 of the exercise 20151103-Lecture-10-PageRank)
 
 # Adjacency matrix of the graph
 edges = [
     [0, 1, 1, 0, 0, 0],
-    [1, 1, 0, 0, 1, 0],
     [0, 0, 0, 0, 0, 0],
+    [1, 1, 0, 0, 1, 0],
     [0, 0, 0, 0, 1, 1],
     [0, 0, 0, 0, 0, 1],
     [0, 0, 0, 1, 0, 0],
